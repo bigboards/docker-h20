@@ -29,6 +29,11 @@ RUN mkdir /etc/h2o
 VOLUME /etc/h2o
 
 # external ports
+<<<<<<< HEAD
 EXPOSE 54321
+=======
+EXPOSE 54321 54321/udp 
+EXPOSE 54322 54322/udp
+>>>>>>> 1b88c4385a5dc8e2f9559d5b4179efe085a7a3ee
 
 CMD ["/apps/h2o-run.sh"]
