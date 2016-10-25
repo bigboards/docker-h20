@@ -10,8 +10,7 @@ RUN apt-get update && apt-get install -f unzip
 
 # Fetch h2o latest_stable
 RUN \
-  wget http://h2o-release.s3.amazonaws.com/h2o/latest_stable -O latest && \
-  wget --no-check-certificate -i latest -O /opt/h2o.zip && \
+  wget http://h2o-release.s3.amazonaws.com/h2o/rel-turing/8/h2o-3.10.0.8.zip --no-check-certificate -O /opt/h2o.zip && \
   unzip -d /opt /opt/h2o.zip && \
   rm /opt/h2o.zip && \
   cd /opt && \
