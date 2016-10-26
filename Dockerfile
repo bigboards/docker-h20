@@ -10,12 +10,12 @@ RUN apt-get update && apt-get install -f unzip
 
 # Fetch h2o latest_stable
 RUN \
-  wget http://h2o-release.s3.amazonaws.com/h2o/rel-turing/8/h2o-3.10.0.8.zip --no-check-certificate -O /opt/h2o.zip && \
+  wget http://h2o-release.s3.amazonaws.com/h2o/rel-turing/8/h2o-3.10.0.8-cdh5.8.zip --no-check-certificate -O /opt/h2o.zip && \
   unzip -d /opt /opt/h2o.zip && \
   rm /opt/h2o.zip && \
   cd /opt && \
-  cd `find . -name 'h2o.jar' | sed 's/.\///;s/\/h2o.jar//g'` && \ 
-  cp h2o.jar /opt && \
+  cd `find . -name 'h2odriver.jar' | sed 's/.\///;s/\/h2odriver.jar//g'` && \ 
+  cp h2odriver.jar /opt && \
   wget http://s3.amazonaws.com/h2o-training/mnist/train.csv.gz && \
   gunzip train.csv.gz 
 

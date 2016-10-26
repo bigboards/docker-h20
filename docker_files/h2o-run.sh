@@ -32,7 +32,7 @@ IP=$(ifconfig ${ITF} | grep "inet addr" | cut -d ':' -f2 | cut -d ' ' -f1)
 MASK=$(ifconfig ${ITF} | grep "Mask" | cut -d ':' -f4)
 CIDR=$(mask2cidr $MASK)
 
-java -Xmx${JAVA_HEAP:-4g} ${H2O_OPTS} -jar /opt/h2o.jar \
+java -Xmx${JAVA_HEAP:-4g} ${H2O_OPTS} -cp h2odriver.jar water.H2OApp \
 	-name ${H2O_CLOUD_NAME} \
 	-flatfile ${FLAT_FILE} \
 	-network ${IP}/${CIDR}
